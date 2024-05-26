@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonne Fête, Maman !</title>
+    <style>
+        body {
+            font-family: 'Pacifico', cursive;
+            background-color: #ffe6e6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Pour empêcher les débordements hors de la fenêtre */
+        }
+        header {
+            background-color: #ff9999;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2 {
+            font-weight: normal;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        .message {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .heart {
+            color: red;
+            position: absolute;
+            font-size: 50px; /* Taille des gros cœurs */
+            opacity: 0.5; /* Opacité réduite */
+            animation: float 5s linear infinite;
+            z-index: 0; /* Pour placer les cœurs en arrière-plan */
+        }
+        .rose-heart {
+            color: #ffcccc; /* Couleur rose */
+            font-size: 100px; /* Taille des très gros cœurs */
+            position: absolute;
+            z-index: 0; /* Pour placer les cœurs en arrière-plan */
+        }
+        .rose-heart.left {
+            left: -5cm;
+            top: 20%;
+        }
+        .rose-heart.right {
+            right: -5cm;
+            top: 20%;
+        }
+        @keyframes float {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+                transform: scale(0.2);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bonne Fête, Maman !</h1>
+    </header>
+    <div class="container">
+        <section class="message">
+            <h2>Un Message Spécial</h2>
+            <p>Chère Maman,</p>
+            <p>Voilà, j'ai créé une page web pour te souhaiter bonne fête ! J'espère que ça te plaît (jsuis au top en codage).</p>
+            <p>Avec tout mon amour, <span class="heart">❤️</span></p>
+        </section>
+        <span class="rose-heart left">❤️</span>
+        <span class="rose-heart right">❤️</span>
+    </div>
+    <footer>
+        <p>© [2024] - Tous droits réservés. Avec amour de la part de [Calista]. <span class="heart">❤️</span></p>
+    </footer>
+    <script>
+        // Créer des cœurs qui s'envolent
+        const container = document.querySelector('.container');
+        const hearts = 30; // Augmenté le nombre de cœurs
+
+        for (let i = 0; i < hearts; i++) {
+            const heart = document.createElement('span');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.animationDuration = Math.random() * 6 + 3 + 's';
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000); // Supprime le cœur après 8 secondes
+        }
+    </script>
+</body>
+</html>
